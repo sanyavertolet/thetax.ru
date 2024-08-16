@@ -1,27 +1,25 @@
-package ru.thetax.views.main
+package ru.thetax.views.main.header
 
 import js.objects.jso
 import react.*
 import react.dom.html.ReactHTML.a
-import react.dom.html.ReactHTML.button
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h1
+import react.dom.html.ReactHTML.h6
 import react.dom.html.ReactHTML.img
 import react.dom.html.ReactHTML.input
 import react.dom.html.ReactHTML.option
-import react.dom.html.ReactHTML.p
 import react.dom.html.ReactHTML.select
+import ru.thetax.views.main.HeaderAndInputProps
+import ru.thetax.views.main.parseAndCalculateYearSalary
 import ru.thetax.views.utils.PeriodEnum
 import ru.thetax.views.utils.externals.cookie.cookie
 import ru.thetax.views.utils.externals.cookie.getLanguageCode
-import ru.thetax.views.utils.externals.fontawesome.faGithub
-import ru.thetax.views.utils.externals.fontawesome.faQuestionCircle
-import ru.thetax.views.utils.externals.fontawesome.fontAwesomeIcon
+import ru.thetax.views.utils.externals.fontawesome.*
 import ru.thetax.views.utils.externals.i18n.PlatformLanguages
 import ru.thetax.views.utils.externals.i18n.changeLanguage
 import ru.thetax.views.utils.externals.i18n.useTranslation
 import web.cssom.*
-import web.html.ButtonType
 
 /**
  * Header with an input of salary and meta information
@@ -96,20 +94,27 @@ val headerAndInput = FC<HeaderAndInputProps> { props ->
                         }
                     }
                 }
+
                 div {
-                    className = ClassName("row text-center pt-5")
+                    className = ClassName("row text-center mt-5")
                     h1 {
-                        className = ClassName("text-white animate__animated animate__bounce")
+                        style = jso {
+                            color = "rgb(253, 223, 197)".unsafeCast<Color>()
+                        }
                         +"Российский налоговый калькулятор".t()
                     }
-                    p {
+
+                    h6 {
                         className = ClassName("text-white")
-                        +"Каким будет Ваш налог с 2025го года?".t()
+                        +"Каким будет Ваш налог с 2025го года".t()
                     }
+
                     menu {}
+
                 }
+
                 div {
-                    className = ClassName("mt-3 row justify-content-center")
+                    className = ClassName("row mt-3 justify-content-center")
                     div {
                         className = ClassName("row justify-content-center mb-4")
                         // ====== input salary ====
@@ -173,58 +178,6 @@ val headerAndInput = FC<HeaderAndInputProps> { props ->
                             }
                         }
                     }
-                }
-            }
-        }
-    }
-}
-
-val menu = FC<SalaryProps> {
-    div {
-        className = ClassName("row d-flex justify-content-center")
-        div {
-            className = ClassName("col-8")
-            button {
-                type = ButtonType.button
-                className = ClassName("btn btn-outline-light")
-                +"Test"
-                style = jso {
-                    borderTopRightRadius = 0.unsafeCast<BorderTopRightRadius>()
-                    borderBottomRightRadius = 0.unsafeCast<BorderBottomRightRadius>()
-                }
-            }
-
-            button {
-                type = ButtonType.button
-                className = ClassName("btn btn-outline-light")
-                +"Test"
-                style = jso {
-                    borderTopRightRadius = 0.unsafeCast<BorderTopRightRadius>()
-                    borderBottomRightRadius = 0.unsafeCast<BorderBottomRightRadius>()
-                    borderTopLeftRadius = 0.unsafeCast<BorderTopRightRadius>()
-                    borderBottomLeftRadius = 0.unsafeCast<BorderBottomRightRadius>()
-                }
-            }
-
-            button {
-                type = ButtonType.button
-                className = ClassName("btn btn-outline-light")
-                +"Test"
-                style = jso {
-                    borderTopRightRadius = 0.unsafeCast<BorderTopRightRadius>()
-                    borderBottomRightRadius = 0.unsafeCast<BorderBottomRightRadius>()
-                    borderTopLeftRadius = 0.unsafeCast<BorderTopRightRadius>()
-                    borderBottomLeftRadius = 0.unsafeCast<BorderBottomRightRadius>()
-                }
-            }
-
-            button {
-                type = ButtonType.button
-                className = ClassName("btn btn-outline-light")
-                +"Test"
-                style = jso {
-                    borderTopLeftRadius = 0.unsafeCast<BorderTopRightRadius>()
-                    borderBottomLeftRadius = 0.unsafeCast<BorderBottomRightRadius>()
                 }
             }
         }
